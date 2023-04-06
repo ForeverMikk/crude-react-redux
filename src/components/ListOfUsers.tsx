@@ -9,35 +9,12 @@ import {
     Title,
     Badge
   } from "@tremor/react";
-  
-  const users: {
-    name: string;
-    email: string;
-    github: string;
-    id: string;
-  } [] = [
-    {
-        id: '1',    
-        name: "Peter Doe",
-        email: "peterDoe@GamepadHapticActuator.com",
-        github: "yazmanito"
-    },
-    {
-        id: '2',    
-        name: "John Doe",
-        email: "johnDoe@GamepadHapticActuator.com",
-        github: "johnDoe"
-    },
-    {
-        id: '3',    
-        name: "Maria Doe",
-        email: "mariaDoe@GamepadHapticActuator.com",
-        github: "yazmanito"
-    },
-    
-  ];
+  import {useSelector} from 'react-redux';
   
   export function ListOfUsers() {
+
+    const users = useSelector(state => state.users);
+
     return (
       <Card>
         <Title>
