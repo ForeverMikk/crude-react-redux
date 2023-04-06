@@ -42,7 +42,7 @@ import {
       <Card>
         <Title>
             Usuarios
-            <Badge style={{marginLeft: "8px"}}>{users.length}</Badge>
+            <Badge style={{marginLeft: "8px "}}>{users.length}</Badge>
         </Title>
         <Table>
           <TableHead>
