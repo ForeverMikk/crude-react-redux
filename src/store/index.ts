@@ -7,3 +7,8 @@ export const store = configureStore({
         users: usersReducer,
     }
 })
+
+
+// Saca el tipo de dato que retorna la funcion en automatico
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
