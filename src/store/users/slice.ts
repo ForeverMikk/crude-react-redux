@@ -36,7 +36,7 @@ export interface UserWithId extends User {
 // DE esta forma se estaria autoinvocando la funcion y setearia el valor indicado
 const initialState: UserWithId[] = (() => {
     const persistendState = localStorage.getItem("__redux__state__");
-    
+
     if(persistendState) {
         return JSON.parse(persistendState).users;
     }
@@ -49,7 +49,6 @@ const initialState: UserWithId[] = (() => {
 // if (persistendState){
 //     initialState = JSON.parse(persistendState).users;
 // }
-
 
 export const userSlice = createSlice({
     name: 'users',
