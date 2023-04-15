@@ -1,20 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-
-export type UserId = string;
-
-// TypeScript Config
-export interface User {
-    name: string,
-    email: string,
-    github: string
-}
-
-export interface UserWithId extends User {
-    id: string
-}
-
-const initialState: UserWithId[] = [
+const DEFAULT_STATE = [
     {
         id: '1',    
         name: "Peter Doe",
@@ -34,6 +20,35 @@ const initialState: UserWithId[] = [
         github: "yazmanito"
     },
 ]
+
+export type UserId = string;
+
+// TypeScript Config
+export interface User {
+    name: string,
+    email: string,
+    github: string
+}
+
+export interface UserWithId extends User {
+    id: string
+}
+// DE esta forma se estaria autoinvocando la funcion y setearia el valor indicado
+const initialState: UserWithId[] = (() => {
+    const persistendState = localStorage.getItem("__redux__state__");
+    
+    if(persistendState) {
+        return JSON.parse(persistendState).users;
+    }
+    return DEFAULT_STATE;
+})();
+
+// Tambien se podria de hacer una forma mas tradicional
+// let initialState: UserWithId[] = DEFAULT_STATE;
+// const persistendState = localStorage.getItem("__redux__state__");
+// if (persistendState){
+//     initialState = JSON.parse(persistendState).users;
+// }
 
 
 export const userSlice = createSlice({
