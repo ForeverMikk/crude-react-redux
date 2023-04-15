@@ -7,3 +7,5 @@ export const useAppDispatch: () => AppDispatch = useDispatch;
 
 //En lugar de usar el useSelector y el use Dispatch directaente creas un hook que tenga integrado el tipo 
 // y se usa en lugar del useSelector y useDispatch
+
+// Es preferible hacer algo asi con JS paara no importtar useReducer en cada componente
