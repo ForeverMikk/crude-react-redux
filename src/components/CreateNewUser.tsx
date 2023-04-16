@@ -14,7 +14,7 @@ const CreateNewUser = () => {
 
         const form = event.target;
         const formData = new FormData(form);
-
+        
         const name = formData.get('name') as string;
         const email = formData.get('email') as string;
         const github = formData.get('github') as string;
@@ -43,6 +43,12 @@ const CreateNewUser = () => {
 
                 <div>
                     <Button type='submit' style={{marginTop: "2rem"}}>Crear</Button>
+                </div>
+
+                <div className="card">
+                    <div>
+
+                    </div>
                 </div>
             </form>
         </Card>
