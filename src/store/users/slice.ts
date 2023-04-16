@@ -56,7 +56,9 @@ export const userSlice = createSlice({
     reducers: {
         addNewUser: (state, action: PayloadAction<User>) => {
             const id = crypto.randomUUID();
-            return [...state, { id, ...action.payload }]
+            // Con Redux Toolkit puedes modificar el estado directamente o crear uno nuevo
+            state.push({ id, ...action.payload });
+            // return [...state, { id, ...action.payload }]
         },
         deleteUserById: (state, action: PayloadAction<UserId>) => {
             const id = action.payload;
@@ -66,7 +68,8 @@ export const userSlice = createSlice({
             const isUserAlreadyDefined = state.some(user => user.id === action.payload.id);
 
             if(!isUserAlreadyDefined) {
-                return [...state, action.payload]
+                state.push(action.payload);
+                // return [...state, action.payload];
             }
         }
     }
